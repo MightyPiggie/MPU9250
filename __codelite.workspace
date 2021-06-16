@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="IPASS" Database="" Version="10000">
+  <Project Name="MPU9250" Path="MPU9250/_codelite.project" Active="No"/>
+  <Project Name="fietscomputer" Path="fietscomputer/fietscomputer.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="MPU9250" ConfigName="Release"/>
+      <Project Name="fietscomputer" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

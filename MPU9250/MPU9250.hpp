@@ -4,7 +4,8 @@
 
 class MPU9250 {
 private:
-	uint8_t adress;
+	uint8_t adress_6050;
+	uint8_t adress_mag;
 	hwlib::i2c_bus& bus;
 	union {
 		int16_t full_bits;
@@ -23,14 +24,14 @@ private:
 	};
 	
 												
-	int16_t read_2_bytes(uint8_t LSB, uint8_t MSB);
+	int16_t read_2_bytes(uint8_t adress, uint8_t LSB, uint8_t MSB);
 		
 public:
-	MPU9250(uint8_t adress, hwlib::i2c_bus& bus);
+	MPU9250(uint8_t adress_6050, uint8_t adress_mag, hwlib::i2c_bus& bus);
 	
-	void write(uint8_t reg, uint8_t data);
+	void write(uint8_t adress, uint8_t reg, uint8_t data);
 	
-	uint8_t read(uint8_t reg);
+	uint8_t read(uint8_t adress, uint8_t reg);
 		
 	/**
 		 * @brief Get the current temperature
@@ -42,7 +43,7 @@ public:
 	int16_t get_y_accel();
 	int16_t get_z_accel();
 	xyz get_accel_data(); 
-	cal_mag get_cal_mag(MPU9250 mag);
+	cal_mag get_cal_mag();
 	int16_t get_x_mag();
 	int16_t get_y_mag();
 	int16_t get_z_mag();

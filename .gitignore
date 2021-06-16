@@ -1,0 +1,14 @@
+.clang
+.codelite
+
+*.o
+*.bin
+*.elf
+*.ld
+*.map
+*.mk
+*.exe
+tags
+*.lss
+*_flags
+bmptk_*_stack.c
