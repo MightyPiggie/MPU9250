@@ -29,6 +29,13 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="source">
+    <File Name="XYZ.hpp"/>
+    <File Name="I2C_device.hpp"/>
+    <File Name="I2C_device.cpp"/>
+    <File Name="AK8963.hpp"/>
+    <File Name="AK8963.cpp"/>
+    <File Name="MPU6050.hpp"/>
+    <File Name="MPU6050.cpp"/>
     <File Name="MPU9250_defines.hpp"/>
     <File Name="MPU9250.cpp"/>
     <File Name="MPU9250.hpp"/>

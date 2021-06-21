@@ -1,7 +1,7 @@
 #ifndef MPU9250_defines_H_
 #define MPU9520_defines_H_
 
-#define MPU9250_ADDRESS 0x68
+#define MPU6050_ADDRESS 0x68
 #define AK8963_ADDRESS 0x0C
 
 // AK8963_ADDRESS

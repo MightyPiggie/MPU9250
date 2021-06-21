@@ -45,11 +45,12 @@ int main(void){
 	auto sda = hwlib::target::pin_oc(hwlib::target::pins::sda);
 	auto i2c_bus = hwlib::i2c_bus_bit_banged_scl_sda(scl, sda);
 	auto display = hwlib::glcd_oled(i2c_bus, 0x3c);
+	auto mpu = MPU9250(i2c_bus, 0x68, 0x0C);	
+
 	auto speed = hwlib::part(display, hwlib::xy(0,0), hwlib::xy(64, 32));
 	auto speed_font = hwlib::font_default_16x16();
 	auto speed_terminal = hwlib::terminal_from(speed, speed_font);
-	MPU9250 mpu = MPU9250(0x68, 0x0C, i2c_bus );	
-	mpu.init_mag();
+	
 	bool triggered = false;
 	while(true){
 		int16_t z = mpu.get_z_mag();
