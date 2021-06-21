@@ -23,7 +23,7 @@ RESULTS := main.lss
 
 # set RELATIVE to the next higher directory 
 # and defer to the appropriate Makefile.* there
-SERIAL_PORT := COM3
+SERIAL_PORT := COM8
 RELATIVE := ..
 include $(RELATIVE)/MPU9250/makefile
 include $(RELATIVE)/Makefile.due

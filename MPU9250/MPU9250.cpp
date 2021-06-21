@@ -85,7 +85,13 @@ MPU9250::xyz MPU9250::get_accel_data(){
 MPU9250::xyz MPU9250::get_gyro_data(){
 	return {get_x_gyro(), get_y_gyro(), get_z_gyro()};
 		}
+void MPU9250::check_if_sensor_present(){
+	if(read(adress_6050, REG_WHO_AM_I) != MPU9250_ADDRESS) {
+		hwlib::cout << "MPU9250 has not been detected. Check if the cables are wired correctly.";
+	}
+}		
 void MPU9250::init_mag(){
+	check_if_sensor_present();
 	write(adress_6050, REG_INT_PIN_CFG, 0x2);
 	calibrated_mag = get_cal_mag();
 	write(adress_mag, REG_MAG_CONTROL1, 0x00);
