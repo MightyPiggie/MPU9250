@@ -86,7 +86,7 @@ MPU9250::xyz MPU9250::get_gyro_data(){
 	return {get_x_gyro(), get_y_gyro(), get_z_gyro()};
 		}
 void MPU9250::init_mag(){
-	write(adress_6050, INT_PIN_CFG, 0x2);
+	write(adress_6050, REG_INT_PIN_CFG, 0x2);
 	calibrated_mag = get_cal_mag();
 	write(adress_mag, REG_MAG_CONTROL1, 0x00);
 	write(adress_mag, REG_MAG_CONTROL1,0x16);
