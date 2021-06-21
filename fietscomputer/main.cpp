@@ -41,29 +41,13 @@ int main(void){
 	auto scl = hwlib::target::pin_oc(hwlib::target::pins::scl);
 	auto sda = hwlib::target::pin_oc(hwlib::target::pins::sda);
 	auto i2c_bus = hwlib::i2c_bus_bit_banged_scl_sda(scl, sda);
-	MPU9250 mpu = MPU9250(0x68, 0x0C, i2c_bus);
-
-	mpu.write(0x68, 0x37, 0x2 );
-	auto test = mpu.get_cal_mag();
-	//hwlib::cout << test_data << hwlib::endl;
-	
-	mpu.write(0x0C, 0x0A, 0x00);
-	mpu.write(0x0C, 0x0A,0x16);
+	MPU9250 mpu = MPU9250(0x68, 0x0C, i2c_bus );	
+	mpu.init_mag();
 	bool triggered = false;
 	while(true){
-//		hwlib::cout << mpu.get_temperature() << hwlib::endl;
-//		hwlib::cout << mpu.get_x_accel() << "--" << mpu.get_y_accel() << "--" << mpu.get_z_accel()  << hwlib::endl;
-	//			hwlib::cout << mpu.read(0x3B) << "                     " << mpu.read(0x3F) << hwlib::endl;
-		
-		
-		
-	
-		
-		
-		int16_t z = mpu.get_z_mag()*test.z;
-		mpu.read(0x0C, 0x09);
+		int16_t z = mpu.get_z_mag();
+//		hwlib::cout << z << hwlib::endl;
 		if((z >= 5000 || z <=-5000) && triggered == false) {
-//			hwlib::cout << z << hwlib::endl;
 			triggered = true;
 			add_rotation();
 			hwlib::cout << "KM/Uur: " << int(calc_speed()*3.6) << hwlib::endl;
@@ -71,13 +55,7 @@ int main(void){
 		else if(z < 5000 && z > -5000 && triggered == true) {
 			triggered = false;
 		}
-		}
-		 /*
-		 while(true){
-			 auto x_mag = mpu.read_2_bytes(0x03h, 0x4h);
-			 hwlib::cout << x_mag << hwlib::endl;
-			 
-		 }
-		  */
-  //hwlib::wait_ms(10);
+		hwlib::wait_ms(10);
+//		hwlib::cout << mpu.get_accel_data().x << hwlib::endl;
+	}
 }

@@ -1,6 +1,5 @@
 .clang
 .codelite
-
 *.o
 *.bin
 *.elf

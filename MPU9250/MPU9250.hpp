@@ -22,7 +22,7 @@ private:
 		float y;
 		float z;
 	};
-	
+	cal_mag calibrated_mag;
 												
 	int16_t read_2_bytes(uint8_t adress, uint8_t LSB, uint8_t MSB);
 		
@@ -43,11 +43,15 @@ public:
 	int16_t get_y_accel();
 	int16_t get_z_accel();
 	xyz get_accel_data(); 
+	int16_t get_x_gyro();
+	int16_t get_y_gyro();
+	int16_t get_z_gyro();
+	xyz get_gyro_data();
 	cal_mag get_cal_mag();
 	int16_t get_x_mag();
 	int16_t get_y_mag();
 	int16_t get_z_mag();
-	
+	void init_mag();
 	};
 								
 
