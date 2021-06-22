@@ -19,6 +19,7 @@ public:
 	int16_t get_x_mag();
 	int16_t get_y_mag();
 	int16_t get_z_mag();
+	xyz get_mag_data();
 	void init();
 };
 
