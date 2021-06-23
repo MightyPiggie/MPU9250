@@ -40,9 +40,9 @@ public:
 	/**
 	 * @brief Get the currect accelorometer data 
 	 * 
-	 * @return The currect accelorometer data from all axis in a xyz struct 
+	 * @return The currect accelorometer data from all axis in a XYZ struct 
 	 */
-	xyz get_accel_data(); 
+	XYZ get_accel_data(); 
 	
 	/**
 	 * @brief Get the current x axis gyroscope data 
@@ -68,20 +68,24 @@ public:
 	/**
 	 * @brief Get the currect gyroscope data 
 	 * 
-	 * @return The currect gyroscope data from all axis in a xyz struct 
+	 * @return The currect gyroscope data from all axis in a XYZ struct 
 	 */
-	xyz get_gyro_data();
+	XYZ get_gyro_data();
 	
 	/**
 	 * @brief Initialize the MPU6050 sensor
 	 * 
-	 * @return The 
+	 * @return A true (1) if the initialization is succesful.
 	 */
 	bool init();
+	
+	/**
+	 * @brief Check if the sensor is working
+	 * 
+	 * @return A true (1) if the sensor is working
+	 */
 	bool check_if_sensor_present();
 };
-
-hwlib::cout << "Test"
 
 #endif	
 

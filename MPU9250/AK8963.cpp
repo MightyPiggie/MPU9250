@@ -38,12 +38,13 @@ int16_t AK8963::get_z_mag() {
 	return temp;
 }
 
-xyz AK8963::get_mag_data(){
+xyz AK8963::get_mag_data() {
 	return {get_x_mag(), get_y_mag(), get_z_mag()};
 }
 
-void AK8963::init(){
+bool AK8963::init(){
 	calibrated_mag = get_cal_mag();
 	write(REG_MAG_CONTROL1, 0x00);
 	write(REG_MAG_CONTROL1,0x16);
+	return true;
 }

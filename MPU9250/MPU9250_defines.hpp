@@ -123,7 +123,7 @@
 #define REG_FIFO_COUNTH 0x72
 #define REG_FIFO_COUNTL 0x73
 #define REG_FIFO_R_W 0x74
-#define REG_WHO_AM_I 0x75 //Should return 0x68
+#define REG_WHO_AM_I 0x75 //Should return 0x71
 #define REG_XA_OFFSET_H 0x77
 #define REG_XA_OFFSET_L 0x78
 #define REG_YA_OFFSET_H 0x7A

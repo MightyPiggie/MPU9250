@@ -29,8 +29,9 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="source">
+    <File Name="fietscomputer.cpp"/>
     <File Name="main.cpp"/>
-    <File Name="bmptk_fixed_size_stack.c"/>
+    <File Name="fietscomputer.hpp"/>
     <File Name="makefile"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">

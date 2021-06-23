@@ -11,10 +11,10 @@
 #============================================================================
 
 # source files in this project (main.* is automatically assumed)
-SOURCES :=
+SOURCES += fietscomputer.cpp
 
 # header files in this project
-HEADERS :=
+HEADERS += fietscomputer.hpp
 
 # other places to look for files for this project
 SEARCH  := ../MPU9250/
@@ -23,7 +23,7 @@ RESULTS := main.lss
 
 # set RELATIVE to the next higher directory 
 # and defer to the appropriate Makefile.* there
-SERIAL_PORT := COM8
+SERIAL_PORT := COM3
 RELATIVE := ..
 include $(RELATIVE)/MPU9250/makefile
 include $(RELATIVE)/Makefile.due

@@ -48,9 +48,11 @@ bool MPU6050::init(){
 	return false;
 }
 bool MPU6050::check_if_sensor_present(){
-	if(read(REG_WHO_AM_I) != MPU6050_ADDRESS) {
+	if(read(REG_WHO_AM_I) != 0x71) {
+		hwlib::cout << read(REG_WHO_AM_I) << hwlib::endl;
 		hwlib::cout << "MPU6050 has not been detected. Check if the cables are wired correctly.";
 		return false;
 	}
+	hwlib::cout << read(REG_WHO_AM_I) << hwlib::endl;
 	return true;
 }		
