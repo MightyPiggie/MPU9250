@@ -46,9 +46,9 @@ public:
 	/**
 	 * @brief Get the currect magnetometer data 
 	 * 
-	 * @return The currect magnetometer data from all axis in a xyz struct. The returned data is calibrated
+	 * @return The currect magnetometer data from all axis in a XYZ struct. The returned data is calibrated
 	 */
-	xyz get_mag_data();
+	XYZ get_mag_data();
 	
 	/**
 	 * @brief Initialize the AK8963 sensor

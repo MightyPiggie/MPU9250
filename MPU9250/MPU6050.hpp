@@ -85,6 +85,8 @@ public:
 	 * @return A true (1) if the sensor is working
 	 */
 	bool check_if_sensor_present();
+	
+	bool self_test();
 };
 
 #endif	

@@ -38,7 +38,7 @@ int16_t AK8963::get_z_mag() {
 	return temp;
 }
 
-xyz AK8963::get_mag_data() {
+XYZ AK8963::get_mag_data() {
 	return {get_x_mag(), get_y_mag(), get_z_mag()};
 }
 

@@ -16,8 +16,10 @@ private:
 protected:
 	I2C_device(hwlib::i2c_bus& bus, 	uint8_t adress);
 	void write(uint8_t reg, uint8_t data);
-	uint8_t read(uint8_t reg);
+	int8_t read(uint8_t reg);
 	int16_t read_2_bytes(uint8_t LSB, uint8_t MSB);
+	int8_t read_average(uint8_t reg, int amount);
+	int16_t read_2_bytes_average(uint8_t LSB, uint8_t MSB, int amount);
 };
 
 #endif
