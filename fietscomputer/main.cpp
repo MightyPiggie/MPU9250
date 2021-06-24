@@ -4,9 +4,9 @@
 
 unsigned int circumference = 2268;
 
-void write_data_to_terminal(hwlib::terminal& terminal, int data ) {
-	terminal << "\f" << data << hwlib::flush;
-}
+//void write_data_to_terminal(hwlib::terminal& terminal, int data ) {
+//	terminal << "\f" << data << hwlib::flush;
+//}
 int main(void){
 	hwlib::wait_ms(100);
 	auto scl = hwlib::target::pin_oc(hwlib::target::pins::scl);
@@ -30,8 +30,8 @@ int main(void){
 		if((z >= 5000 || z <=-5000) && triggered == false) {
 			triggered = true;
 			fiets.add_rotation();
-			hwlib::cout << "KM/Uur: " << int(fiets.calc_speed()*3.6) << hwlib::endl;
-			write_data_to_terminal(speed_terminal, int(fiets.calc_speed()*3.6));
+//			hwlib::cout << "KM/Uur: " << int(fiets.calc_speed()*3.6) << hwlib::endl;
+//			write_data_to_terminal(speed_terminal, int(fiets.calc_speed()*3.6));
 		}
 		else if(z < 5000 && z > -5000 && triggered == true) {
 			triggered = false;

@@ -29,6 +29,10 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="source">
+    <File Name="OledTask.hpp"/>
+    <File Name="OledTask.cpp"/>
+    <File Name="Speedtask.hpp"/>
+    <File Name="Speedtask.cpp"/>
     <File Name="main.cpp"/>
     <File Name="fietscomputer.cpp"/>
     <File Name="fietscomputer.hpp"/>
