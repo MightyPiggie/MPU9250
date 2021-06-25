@@ -6,7 +6,9 @@
 
 MPU6050::MPU6050(hwlib::i2c_bus& bus, uint8_t adress):
 	I2C_device(bus, adress)
-{}
+{
+	init();
+}
 
 uint8_t MPU6050::get_temperature() {
 	uint16_t temp = read_2_bytes(REG_TEMP_OUT_L, REG_TEMP_OUT_H);

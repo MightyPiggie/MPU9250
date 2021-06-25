@@ -17,6 +17,8 @@ void clear_timestamps();
 uint8_t count_timestamps();
 
 float calc_speed();
+
+unsigned int get_distance();
 };
 
 #endif	

@@ -6,7 +6,9 @@
 
 AK8963::AK8963(hwlib::i2c_bus& bus, uint8_t adress):
 	I2C_device(bus, adress)
-{}
+{
+	init();
+}
 
 AK8963::cal_mag AK8963::get_cal_mag() {
 	write(REG_MAG_CONTROL1, 0x00);

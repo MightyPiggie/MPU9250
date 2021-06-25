@@ -86,6 +86,11 @@ public:
 	 */
 	bool check_if_sensor_present();
 	
+	/**
+	 * @brief 
+	 * 
+	 * @return 
+	 */
 	bool self_test();
 };
 

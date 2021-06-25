@@ -36,3 +36,7 @@ float fietscomputer::calc_speed() {
 	auto count = count_timestamps();
 	return (count / 10.0) * (circumference / 1000.0);
 }
+
+unsigned int fietscomputer::get_distance() {
+	return rotations * (circumference / 1000.0);
+}

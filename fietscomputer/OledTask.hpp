@@ -4,23 +4,34 @@
 #include "hwlib.hpp"
 #include "rtos.hpp"
 
-#include "fietscomputer.hpp"
-
 class OledTask : public rtos::task<> {
-private:
-	rtos::channel<int, 5> oledChannel;
-	struct displayData {
-		int data = 0;
-		hwlib::terminal_from terminal;
-		displayData(int data, hwlib::terminal_from terminal):
-		data(data),
-		terminal(terminal)
-		{}
+public:
+	enum class DisplayType {
+		speed, temperature, distance
+	};
+	
+	struct DisplayData {
+		DisplayType type;
+		int value;
 	};
 
+private:
+	rtos::channel<DisplayData, 5> oledChannel;
+	hwlib::glcd_oled display;
+	
+	hwlib::font_default_16x16 font;
+	hwlib::window_part_t speedPart;
+	hwlib::window_part_t distancePart;
+	hwlib::window_part_t temperaturePart;
+	hwlib::terminal_from speedTerminal;
+	hwlib::terminal_from distanceTerminal;
+	hwlib::terminal_from temperatureTerminal;
+
 public:
-OledTask();
+	OledTask(hwlib::i2c_bus& bus);
 	void main() override;
-	void setDisplay(int data, hwlib::terminal_from terminal );
+	
+	void setDisplayData(DisplayType type, int value);
 };
+
 #endif
