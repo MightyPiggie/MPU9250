@@ -9,12 +9,12 @@
 
 class MagnetTask : public rtos::task<> {
 private:
-	MPU9250 ak;
+	MPU9250& mpu;
 	FietscomputerTask& fietsTask;
 	rtos::clock clock;
 
 public:
-	MagnetTask(hwlib::i2c_bus& bus, FietscomputerTask& fietsTask);
+	MagnetTask(MPU9250& mpu, FietscomputerTask& fietsTask);
 	void main() override;
 };
 

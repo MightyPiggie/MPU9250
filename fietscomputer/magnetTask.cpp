@@ -1,23 +1,23 @@
 #include "magnetTask.hpp"
 
-MagnetTask::MagnetTask(hwlib::i2c_bus& bus, FietscomputerTask& fietsTask):
+MagnetTask::MagnetTask(MPU9250& mpu, FietscomputerTask& fietsTask):
 	task(0, "Magnet Task"),
-	ak(bus, 0x68, 0x0C),
+	mpu(mpu),
 	fietsTask(fietsTask),
 	clock(this, 10 * 1000)
 {}
 
 void MagnetTask::main() {
-	bool triggered = false;
+	bool triggered = false; //Set triggered standard as false.
 	while(true) {
-		int z = ak.get_z_mag();
+		int z = mpu.get_z_mag();
 		if((z >= 5000 || z <=-5000) && triggered == false) {
 			hwlib::cout << z << hwlib::endl;
-			triggered = true;
+			triggered = true; //Set triggered true so the magnet will not be detected multiple times
 			fietsTask.addRotation();
 		}
 		else if(z < 5000 && z > -5000 && triggered == true) {
-			triggered = false;
+			triggered = false; // Set triggered false once the magnet is not being detected anymore
 		}
 		wait(clock);
 	}
