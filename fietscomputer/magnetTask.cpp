@@ -10,9 +10,8 @@ MagnetTask::MagnetTask(MPU9250& mpu, FietscomputerTask& fietsTask):
 void MagnetTask::main() {
 	bool triggered = false; //Set triggered standard as false.
 	while(true) {
-		int z = mpu.get_z_mag();
+		int z = mpu.getZMag();
 		if((z >= 5000 || z <=-5000) && triggered == false) {
-			hwlib::cout << z << hwlib::endl;
 			triggered = true; //Set triggered true so the magnet will not be detected multiple times
 			fietsTask.addRotation();
 		}

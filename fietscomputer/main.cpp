@@ -5,7 +5,7 @@
 #include "fietscomputerTask.hpp"
 #include "temperatureTask.hpp"
 #include "MPU9250.hpp"
-#include "due-twi.hpp"
+#include "angleTask.hpp"
 
 int main(void){
 	hwlib::wait_ms(2000);
@@ -22,7 +22,7 @@ int main(void){
 	auto fietsTask = FietscomputerTask(oledTask);
 	auto magnetTask = MagnetTask(mpu, fietsTask);
 	auto temperatureTask = TemperatureTask(mpu, oledTask);
+	auto angleTask = AngleTask(mpu, oledTask);
 	
-	rtos::print(hwlib::cout);
 	rtos::run();
 }

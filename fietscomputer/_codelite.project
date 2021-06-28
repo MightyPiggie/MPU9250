@@ -29,6 +29,8 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="source">
+    <File Name="angleTask.hpp"/>
+    <File Name="angleTask.cpp"/>
     <File Name="temperatureTask.hpp"/>
     <File Name="temperatureTask.cpp"/>
     <File Name="fietscomputerTask.hpp"/>

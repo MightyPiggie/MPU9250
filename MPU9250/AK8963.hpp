@@ -6,12 +6,12 @@
 
 class AK8963 : public I2C_device {
 private:
-	struct cal_mag {
+	struct CalMag {
 		float x;
 		float y;
 		float z;
 	};
-	cal_mag calibrated_mag;
+	CalMag Calibrated_mag;
 public:
 	AK8963(hwlib::i2c_bus& bus, uint8_t adress);
 	
@@ -20,35 +20,35 @@ public:
 	 * 
 	 * @return The calibration data in a struct with 3 floats called x, y and z.
 	 */
-	cal_mag get_cal_mag();
+	CalMag getCalMag();
 	
 	/**
 	 * @brief Get the current x axis magnetometer data 
 	 * 
 	 * @return The current x axis magnetometer data as a signed 16 bit integer. The returned data is calibrated
 	 */
-	int16_t get_x_mag();
+	int16_t getXMag();
 	
 	/**
 	 * @brief Get the current y axis magnetometer data 
 	 * 
 	 * @return The current y axis magnetometer data as a signed 16 bit integer. The returned data is calibrated
 	 */
-	int16_t get_y_mag();
+	int16_t getYMag();
 	
 	/**
 	 * @brief Get the current z axis magnetometer data 
 	 * 
 	 * @return The current z axis magnetometer data as a signed 16 bit integer. The returned data is calibrated
 	 */
-	int16_t get_z_mag();
+	int16_t getZMag();
 	
 	/**
 	 * @brief Get the currect magnetometer data 
 	 * 
 	 * @return The currect magnetometer data from all axis in a XYZ struct. The returned data is calibrated
 	 */
-	XYZ get_mag_data();
+	XYZ getMagData();
 	
 	/**
 	 * @brief Initialize the AK8963 sensor

@@ -10,7 +10,7 @@
 class FietscomputerTask : public rtos::task<> {
 private:
 	OledTask& oledTask;
-	fietscomputer fc;
+	Fietscomputer fc;
 	rtos::clock clock;
 
 public:

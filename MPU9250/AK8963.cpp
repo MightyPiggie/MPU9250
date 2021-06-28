@@ -10,42 +10,42 @@ AK8963::AK8963(hwlib::i2c_bus& bus, uint8_t adress):
 	init();
 }
 
-AK8963::cal_mag AK8963::get_cal_mag() {
+AK8963::CalMag AK8963::getCalMag() {
 	write(REG_MAG_CONTROL1, 0x00);
 	hwlib::wait_ms(10);
 	write(REG_MAG_CONTROL1, 0x0F);
 	hwlib::wait_ms(10);
-	AK8963::cal_mag cal_mag;
-	cal_mag.x = ((read(0x10)-128)/256+1);
-	cal_mag.y = ((read(0x11)-128)/256+1);
-	cal_mag.z = ((read(0x12)-128)/256+1);
-	return cal_mag;
+	AK8963::CalMag Calmag;
+	Calmag.x = ((read(0x10)-128)/256+1);
+	Calmag.y = ((read(0x11)-128)/256+1);
+	Calmag.z = ((read(0x12)-128)/256+1);
+	return Calmag;
 }
 
-int16_t AK8963::get_x_mag() {
-	auto temp =  read_2_bytes(REG_MAG_XOUT_L, REG_MAG_XOUT_H) * calibrated_mag.x;
+int16_t AK8963::getXMag() {
+	auto temp =  read2Bytes(REG_MAG_XOUT_L, REG_MAG_XOUT_H) * Calibrated_mag.x;
 	read(REG_MAG_STATUS2);
 	return temp;
 }
 
-int16_t AK8963::get_y_mag() {
-	auto temp = read_2_bytes(REG_MAG_YOUT_L, REG_MAG_YOUT_H) * calibrated_mag.y;
+int16_t AK8963::getYMag() {
+	auto temp = read2Bytes(REG_MAG_YOUT_L, REG_MAG_YOUT_H) * Calibrated_mag.y;
 	read(REG_MAG_STATUS2);
 	return temp;
 }
 
-int16_t AK8963::get_z_mag() {
-	auto temp = read_2_bytes(REG_MAG_ZOUT_L, REG_MAG_ZOUT_H) * calibrated_mag.z;
+int16_t AK8963::getZMag() {
+	auto temp = read2Bytes(REG_MAG_ZOUT_L, REG_MAG_ZOUT_H) * Calibrated_mag.z;
 	read(REG_MAG_STATUS2);
 	return temp;
 }
 
-XYZ AK8963::get_mag_data() {
-	return {get_x_mag(), get_y_mag(), get_z_mag()};
+XYZ AK8963::getMagData() {
+	return {getXMag(), getYMag(), getZMag()};
 }
 
 bool AK8963::init(){
-	calibrated_mag = get_cal_mag();
+	Calibrated_mag = getCalMag();
 	write(REG_MAG_CONTROL1, 0x00);
 	write(REG_MAG_CONTROL1,0x16);
 	return true;

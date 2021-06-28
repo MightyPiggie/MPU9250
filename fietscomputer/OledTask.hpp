@@ -7,7 +7,7 @@
 class OledTask : public rtos::task<> {
 public:
 	enum class DisplayType {
-		speed, temperature, distance
+		speed, temperature, distance, angle
 	};
 	
 	struct DisplayData {
@@ -23,9 +23,11 @@ private:
 	hwlib::window_part_t speedPart;
 	hwlib::window_part_t distancePart;
 	hwlib::window_part_t temperaturePart;
+	hwlib::window_part_t anglePart;
 	hwlib::terminal_from speedTerminal;
 	hwlib::terminal_from distanceTerminal;
 	hwlib::terminal_from temperatureTerminal;
+	hwlib::terminal_from angleTerminal;
 
 public:
 	OledTask(hwlib::i2c_bus& bus);

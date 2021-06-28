@@ -7,9 +7,12 @@
 #include "MPU6050.hpp"
 #include "AK8963.hpp"
 
+
 class MPU9250 : public MPU6050, public AK8963 {
 public:
 	MPU9250(hwlib::i2c_bus& bus, uint8_t adress_6050, uint8_t adress_AK8963);
+	float getPitch();
+	float getRoll();
 };
 
 #endif	

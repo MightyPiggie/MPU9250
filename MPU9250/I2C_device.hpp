@@ -50,7 +50,7 @@ protected:
 	 * 
 	 * @return The data that has been read from the least and most significant bits combined to one uint16_t byte.
 	 */
-	int16_t read_2_bytes(uint8_t LSB, uint8_t MSB);
+	int16_t read2Bytes(uint8_t LSB, uint8_t MSB);
 	
 	/**
 	 * @brief This function will read a register an x amount of times and makes an average out of it
@@ -61,7 +61,7 @@ protected:
 	 * 
 	 * @return An average from the data that was read from the register x times.
 	 */
-	int8_t read_average(uint8_t reg, int amount);
+	int8_t readAverage(uint8_t reg, int amount);
 	
 	/**
 	 * @brief This function will read two registers an x amount of times and combines them to one uint16_t "byte" and then it makes an average from it.
@@ -74,7 +74,7 @@ protected:
 	 * 
 	 * @return The averga data that the function has read from the 2 registers.
 	 */
-	int16_t read_2_bytes_average(uint8_t LSB, uint8_t MSB, int amount);
+	int16_t read2BytesAverage(uint8_t LSB, uint8_t MSB, int amount);
 };
 
 #endif

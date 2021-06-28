@@ -2,13 +2,13 @@
 #define FIETSCOMPUTER_H_
 #include "hwlib.hpp"
 
-class fietscomputer {
+class Fietscomputer {
 private:
 	uint64_t timestamps[50] = {0};
 	unsigned int rotations = 0;
 	unsigned int circumference;
 public:	
-fietscomputer(unsigned int circumference);
+Fietscomputer(unsigned int circumference);
 
 void add_rotation();
 

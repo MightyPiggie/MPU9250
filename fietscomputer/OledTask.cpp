@@ -7,9 +7,11 @@ OledTask::OledTask(hwlib::i2c_bus& bus):
 	speedPart(display, hwlib::xy(0,0), hwlib::xy(32, 16)),
 	distancePart(display, hwlib::xy(0, 32), hwlib::xy(64, 48)),
 	temperaturePart(display, hwlib::xy(64, 0), hwlib::xy(96, 16)),
+	anglePart(display, hwlib::xy(64, 32), hwlib::xy(96, 48)),
 	speedTerminal(speedPart, font),
 	distanceTerminal(distancePart, font),
-	temperatureTerminal(temperaturePart, font)
+	temperatureTerminal(temperaturePart, font),
+	angleTerminal(anglePart, font)
 { 
 	display.clear(); 
 }
@@ -28,6 +30,9 @@ void OledTask::main() {
 			case DisplayType::temperature:
 				hwlib::cout << data.value << hwlib::endl;
 				temperatureTerminal << "\f" << data.value << hwlib::flush; //If the type is temperature it will write the value to the temperatureTerminal
+				break;
+			case DisplayType::angle:
+				angleTerminal << "\f" << data.value << hwlib::flush; //If the type is angle it will write the value to the angleTerminal
 				break;
 		}
 	}

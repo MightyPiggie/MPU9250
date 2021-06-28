@@ -11,10 +11,10 @@
 #============================================================================
 
 # source files in this project (main.* is automatically assumed)
-SOURCES += fietscomputer.cpp oledTask.cpp magnetTask.cpp fietscomputerTask.cpp temperatureTask.cpp
+SOURCES += fietscomputer.cpp oledTask.cpp magnetTask.cpp fietscomputerTask.cpp temperatureTask.cpp angleTask.cpp
 
 # header files in this project
-HEADERS += fietscomputer.hpp oledTask.hpp magnetTask.hpp fietscomputerTask.hpp temperatureTask.hpp due-twi.hpp
+HEADERS += fietscomputer.hpp oledTask.hpp magnetTask.hpp fietscomputerTask.hpp temperatureTask.hpp angleTask.hpp
 
 # other places to look for files for this project
 SEARCH  := ../MPU9250/
