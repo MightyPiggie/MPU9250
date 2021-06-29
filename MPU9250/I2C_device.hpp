@@ -2,11 +2,13 @@
 #define I2C_DEVICE_H_
 
 #include "hwlib.hpp"
+#include "rtos.hpp"
 
 class I2C_device {
 private:
 	hwlib::i2c_bus& bus;
 	uint8_t adress;
+	rtos::mutex busMutex;
 	
 	union {
 		int16_t full_bits;

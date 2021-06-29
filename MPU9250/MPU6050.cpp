@@ -16,13 +16,13 @@ uint8_t MPU6050::getTemperature() {
 		}
 		
 int16_t MPU6050::getXAccel() {
-	return read2Bytes(REG_ACCEL_XOUT_L, REG_ACCEL_XOUT_H);
+	return read2BytesAverage(REG_ACCEL_XOUT_L, REG_ACCEL_XOUT_H, 5);
 	}
 int16_t MPU6050::getYAccel() {
-	return read2Bytes(REG_ACCEL_YOUT_L, REG_ACCEL_YOUT_H);
+	return read2BytesAverage(REG_ACCEL_YOUT_L, REG_ACCEL_YOUT_H, 5);
 	}
 int16_t MPU6050::getZAccel() {
-	return read2Bytes(REG_ACCEL_ZOUT_L, REG_ACCEL_ZOUT_H);
+	return read2BytesAverage(REG_ACCEL_ZOUT_L, REG_ACCEL_ZOUT_H, 5);
 	}
 	
 int16_t MPU6050::getXGyro() {

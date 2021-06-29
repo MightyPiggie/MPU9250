@@ -4,7 +4,7 @@ AngleTask::AngleTask(MPU9250& mpu, OledTask& oledTask):
 	task(4, "Angle Task"),
 	mpu(mpu),
 	oledTask(oledTask),
-	clock(this, 10000 * 1000)
+	clock(this, 2500 * 1000)
 {}
 
 void AngleTask::main() {

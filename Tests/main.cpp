@@ -2,31 +2,50 @@
 #include "MPU9250.hpp"
 
 
-void test_accel(MPU9250& mpu) {
+void testAccel(MPU9250& mpu) {
 	hwlib::cout << "Lay the chip flat to test the accelorometer." << hwlib::endl << "The x-axis should be arround 0 +- 1000" << hwlib::endl << "The y-axis should be arround 0 +- 1000" << hwlib::endl << "The z-axis should be arround -16000 +- -1000" << hwlib::endl;
-	hwlib::wait_ms(2500);
-	while(true) {
-		hwlib::cout << "x: "<< mpu.get_x_accel() << " y: "  << mpu.get_y_accel() << " z: " << mpu.get_z_accel() << hwlib::endl;
+	hwlib::wait_ms(5000);
+	for(int i = 0; i < 20; i++) {
+		hwlib::cout << "x: "<< mpu.getXAccel() << " y: "  << mpu.getYAccel() << " z: " << mpu.getZAccel() << hwlib::endl;
 		hwlib::wait_ms(500);
 	}
 }
 
-void test_gyro(MPU9250& mpu) {
+void testGyro(MPU9250& mpu) {
 	hwlib::cout << "Hold the chip still to test the gyroscope" << hwlib::endl << "The x-axis should be arround 0 +- 1000" << hwlib::endl << "The y-axis should be arround 0 +- 1000" << hwlib::endl << "The z-axis should be arround 0 +- 1000" << hwlib::endl;
-	hwlib::wait_ms(2500);
-	while(true) {
-		hwlib::cout << "x: "<< mpu.get_x_gyro() << " y: "  << mpu.get_y_gyro() << " z: " << mpu.get_z_gyro() << hwlib::endl;
+	hwlib::wait_ms(5000);
+	for(int i = 0; i < 20; i++) {
+		hwlib::cout << "x: "<< mpu.getXGyro() << " y: "  << mpu.getYGyro() << " z: " << mpu.getZGyro() << hwlib::endl;
 		hwlib::wait_ms(500);
 	}
 }
 
-void test_mag(MPU9250& mpu) {
-	hwlib::cout << "Hold the chip still to test the magnetometer" << hwlib::endl << "The x-axis should be arround 0 +- 1000" << hwlib::endl << "The y-axis should be arround 0 +- 1000" << hwlib::endl << "The z-axis should be arround 0 +- 1000" << hwlib::endl;
-	hwlib::wait_ms(2500);
-	while(true) {
-		hwlib::cout << "x: "<< mpu.get_x_mag() << " y: "  << mpu.get_y_mag() << " z: " << mpu.get_z_mag() << hwlib::endl;
+void testMag(MPU9250& mpu) {
+	hwlib::cout << "Hold the chip still to test the magnetometer" << hwlib::endl << "The x-axis should be between 250 and 650 +- 100" << hwlib::endl << "The y-axis should be between 250 and 650 +- 100" << hwlib::endl << "The z-axis should be between 250 and 650 +- 100" << hwlib::endl;
+	hwlib::wait_ms(5000);
+	for(int i = 0; i < 20; i++) {
+		hwlib::cout << "x: "<< mpu.getXMag() << " y: "  << mpu.getYMag() << " z: " << mpu.getZMag() << hwlib::endl;
 		hwlib::wait_ms(500);
 	}
+}
+
+void clearTerminal() {
+	for(int i = 0; i < 100; i++) {
+		hwlib::cout << "\n\n\n\n\n\n\n\n\n\n";
+		 
+		}
+	hwlib::cout << hwlib::endl;
+}
+
+void testAllSensors(MPU9250& mpu) {
+	clearTerminal();
+	testAccel(mpu);
+	clearTerminal();
+	testGyro(mpu);
+	clearTerminal();
+	testMag(mpu);
+	clearTerminal();
+	hwlib::cout << "All sensors has been tested" << hwlib::endl;
 }
 
 int main(void){	
@@ -35,8 +54,8 @@ int main(void){
 	auto i2c_bus = hwlib::i2c_bus_bit_banged_scl_sda(scl, sda);
 	auto mpu = MPU9250(i2c_bus, 0x68, 0x0c);	
 	hwlib::wait_ms(2000);
-	test_mag(mpu);
-	if(mpu.self_test() == true) {
+	testAllSensors(mpu);
+	if(mpu.selfTest() == true) {
 		hwlib::cout << "The selftest was successful" << hwlib::endl;
 	}
 	else {

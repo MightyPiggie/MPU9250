@@ -24,5 +24,6 @@ int main(void){
 	auto temperatureTask = TemperatureTask(mpu, oledTask);
 	auto angleTask = AngleTask(mpu, oledTask);
 	
+	rtos::print(hwlib::cout);
 	rtos::run();
 }

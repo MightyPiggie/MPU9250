@@ -4,7 +4,7 @@ MagnetTask::MagnetTask(MPU9250& mpu, FietscomputerTask& fietsTask):
 	task(0, "Magnet Task"),
 	mpu(mpu),
 	fietsTask(fietsTask),
-	clock(this, 10 * 1000)
+	clock(this, 25 * 1000)
 {}
 
 void MagnetTask::main() {
