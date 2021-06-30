@@ -8,7 +8,7 @@ It also uses the [RTOS library](https://github.com/wovo/rtos "RTOS").
 ### Requirements
 * A working enviroment with HWLIB
 * A working enviroment with RTOS
-* A 0.96" Oled with a SSD1301 driver chip
+* A 0.96" Oled with a SSD1306 driver chip
 * An Arduino Due
 
 ### How to use
