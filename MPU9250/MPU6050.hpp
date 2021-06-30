@@ -87,9 +87,9 @@ public:
 	bool checkIfSensorPresent();
 	
 	/**
-	 * @brief 
+	 * @brief Perform a selftest on the sensors
 	 * 
-	 * @return 
+	 * @return A true (1) if the selftest passed all tests
 	 */
 	bool selfTest();
 };

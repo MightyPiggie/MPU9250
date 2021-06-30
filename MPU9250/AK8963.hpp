@@ -11,7 +11,9 @@ private:
 		float y;
 		float z;
 	};
+	
 	CalMag Calibrated_mag;
+	
 public:
 	AK8963(hwlib::i2c_bus& bus, uint8_t adress);
 	

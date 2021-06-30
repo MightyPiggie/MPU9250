@@ -13,35 +13,40 @@ MPU6050::MPU6050(hwlib::i2c_bus& bus, uint8_t adress):
 uint8_t MPU6050::getTemperature() {
 	uint16_t temp = read2Bytes(REG_TEMP_OUT_L, REG_TEMP_OUT_H);
 	return (temp / 333.87) + 21; // The real temperature is a few degrees lower than the output, this is because the device itself creates a bit of heat
-		}
+}
 		
 int16_t MPU6050::getXAccel() {
 	return read2BytesAverage(REG_ACCEL_XOUT_L, REG_ACCEL_XOUT_H, 5);
-	}
+}
+
 int16_t MPU6050::getYAccel() {
 	return read2BytesAverage(REG_ACCEL_YOUT_L, REG_ACCEL_YOUT_H, 5);
-	}
+}
+
 int16_t MPU6050::getZAccel() {
 	return read2BytesAverage(REG_ACCEL_ZOUT_L, REG_ACCEL_ZOUT_H, 5);
-	}
+}
 	
 int16_t MPU6050::getXGyro() {
 	return read2Bytes(REG_GYRO_XOUT_L, REG_GYRO_XOUT_H);
-	}
+}
+
 int16_t MPU6050::getYGyro() {
 	return read2Bytes(REG_GYRO_YOUT_L, REG_GYRO_YOUT_H);
-	}
+}
+
 int16_t MPU6050::getZGyro() {
 	return read2Bytes(REG_GYRO_ZOUT_L, REG_GYRO_ZOUT_H);
-	}	
+}	
 						
 XYZ MPU6050::getAccelData(){
 	return {getXAccel(), getYAccel(), getZAccel()};
-		}	
+}	
 		
 XYZ MPU6050::getGyroData(){
 	return {getXGyro(), getYGyro(), getZGyro()};
-		}
+}
+
 bool MPU6050::init(){
 	if(checkIfSensorPresent()) {
 		write(REG_INT_PIN_CFG, 0x2);
@@ -50,6 +55,7 @@ bool MPU6050::init(){
 	hwlib::cout << checkIfSensorPresent() << hwlib::endl;
 	return false;
 }
+
 bool MPU6050::checkIfSensorPresent(){
 	if(read(REG_WHO_AM_I) != 0x71) {
 		hwlib::cout << "MPU6050 has not been detected. Check if the cables are wired correctly.";

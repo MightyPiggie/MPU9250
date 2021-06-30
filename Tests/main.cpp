@@ -30,10 +30,9 @@ void testMag(MPU9250& mpu) {
 }
 
 void clearTerminal() {
-	for(int i = 0; i < 100; i++) {
+	for(int i = 0; i < 10; i++) {
 		hwlib::cout << "\n\n\n\n\n\n\n\n\n\n";
-		 
-		}
+	}
 	hwlib::cout << hwlib::endl;
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="example code" Database="" Version="10000">
-  <Project Name="fietscomputer" Path="fietscomputer/_codelite.project" Active="No"/>
-  <Project Name="Tests" Path="Tests/_codelite.project" Active="Yes"/>
+  <Project Name="fietscomputer" Path="fietscomputer/_codelite.project" Active="Yes"/>
+  <Project Name="Tests" Path="Tests/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="Tests" ConfigName="Release"/>
