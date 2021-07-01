@@ -15,4 +15,3 @@ CMakeLists.txt
 build-Release/
 compile_flags.txt
 Docs/
-due-twi.hpp
