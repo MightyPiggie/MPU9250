@@ -60,4 +60,5 @@ int main(void){
 	else {
 		hwlib::cout << "The selftest was unsuccessful" << hwlib::endl;
 	}
+	while(true){};
 }
