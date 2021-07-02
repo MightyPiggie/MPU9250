@@ -17,7 +17,7 @@ public:
 	 * 
 	 * @return The pitch value as a float
 	 */
-	float getPitch
+	float getPitch();
 	
 	/**
 	 * @brief Calculate the roll from the accelerometer data 
