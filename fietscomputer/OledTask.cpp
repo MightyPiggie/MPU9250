@@ -28,7 +28,6 @@ void OledTask::main() {
 				distanceTerminal << "\f" << data.value << hwlib::flush; //If the type is dinstance it will write the value to the dinstanceTerminal
 				break;
 			case DisplayType::temperature:
-				hwlib::cout << data.value << hwlib::endl;
 				temperatureTerminal << "\f" << data.value << hwlib::flush; //If the type is temperature it will write the value to the temperatureTerminal
 				break;
 			case DisplayType::angle:
